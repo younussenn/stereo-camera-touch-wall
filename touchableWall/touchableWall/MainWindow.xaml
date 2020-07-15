@@ -4,9 +4,96 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:touchableWall"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Touchable Wall" Height="450" MinWidth="900" Icon="stereo-camera.png" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" WindowState="Maximized">
     <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="#252526" Grid.Column="1">
+                <Grid Margin="0 20 0 0" Background="#36454f">
 
+                </Grid>
+            </Grid>
+            <Grid x:Name="grid" Width="250" Background="#252526" RenderTransformOrigin="0.5,0.5" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="326*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="GhostWhite">
+                    <materialDesign:PackIcon Foreground="#252526" Width="20" Margin="4 2 0 0" Kind="Settings" /><TextBlock Text="SETTINGS" Foreground="#252526" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+  
+                    </Grid.RowDefinitions>
+
+                    <materialDesign:Card Grid.Row="0" Margin="4 4 4 0" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                     Padding="8">
+                        <StackPanel>
+                            <TextBlock FontSize="12">Camera Status</TextBlock>
+                            <TextBlock Margin="4 4 0 0">Intel Realsense D435 <materialDesign:PackIcon Width="10" Height="10" Kind="CheckboxMarkedCircle" Foreground="Green" /></TextBlock>
+                            <TextBlock Margin="4 2 0 0" Name="txtCalibrationStatus">Calibration : </TextBlock>
+                            <TextBlock Margin="0 4 0 0" FontSize="12">Field Of View</TextBlock>
+                            <TextBlock x:Name="lblDepthFov" Margin="4,4,0,0" />
+                            <TextBlock x:Name="lblColorFov" Margin="4,2,0,0" />
+                        </StackPanel>
+                    </materialDesign:Card>
+
+                    <materialDesign:Card Grid.Row="1" Margin="4 4 4 0" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                     Padding="8">
+                        <StackPanel>
+                            <TextBlock FontSize="12">Region Of Interest</TextBlock>
+                            <Grid Height="60" Margin="0 4 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" x:Name="lblRoiMinX" HorizontalAlignment="Center" Text="ROI MinX  :" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="96" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" x:Name="lblRoiMinY" HorizontalAlignment="Center" Text="ROI MinY  :" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="96" />
+                                <TextBlock Grid.Column="0" Grid.Row="2" x:Name="lblRoiMaxX" HorizontalAlignment="Center" Text="ROI MaxX :" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="96" />
+                                <TextBlock Grid.Column="0" Grid.Row="3" x:Name="lblRoiMaxY" HorizontalAlignment="Center" Text="ROI MaxY :" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="96" />
+
+                                <TextBlock Grid.Column="1" Grid.Row="0"  x:Name="txtRoiMinX" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
+                                <TextBlock Grid.Column="1" Grid.Row="1"  x:Name="txtRoiMinY" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
+                                <TextBlock Grid.Column="1" Grid.Row="2"  x:Name="txtRoiMaxX" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
+                                <TextBlock Grid.Column="1" Grid.Row="3"  x:Name="txtRoiMaxY" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
+                            </Grid>
+
+                            <TextBlock FontSize="12" Margin="0 4 0 0">ROI Editing</TextBlock>
+
+
+                        </StackPanel>
+                    </materialDesign:Card>
+
+
+
+
+
+                </Grid>
+
+
+
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
