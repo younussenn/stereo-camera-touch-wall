@@ -93,6 +93,7 @@
                             <TextBlock Margin="0 4 0 0" FontSize="12">Field Of View</TextBlock>
                             <TextBlock x:Name="lblDepthFov" Margin="4,4,0,0" />
                             <TextBlock x:Name="lblColorFov" Margin="4,2,0,0" />
+                            <TextBlock x:Name="lblInfraredFov" Margin="4,2,0,0" />
                         </StackPanel>
                     </materialDesign:Card>
 
