@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Intel.RealSenseWithNativeDll/2.30.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/Intel.RealSense.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MaterialDesignColors/1.2.6": {
         "runtime": {
           "lib/netcoreapp3.1/MaterialDesignColors.dll": {
@@ -28,6 +36,13 @@
     }
   },
   "libraries": {
+    "Intel.RealSenseWithNativeDll/2.30.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v18FHVH8ni8TdhgNKGFhetzI6Wj85LIlxhjyrRJ5gsqoLb9iJKhgaErxTtKxyHbfv/BJR3TAZw5gfJ5bEmgfrA==",
+      "path": "intel.realsensewithnativedll/2.30.0",
+      "hashPath": "intel.realsensewithnativedll.2.30.0.nupkg.sha512"
+    },
     "MaterialDesignColors/1.2.6": {
       "type": "package",
       "serviceable": true,

@@ -23,42 +23,43 @@
             <Grid Background="#252526" Grid.Column="1">
                 <Grid Margin="0 20 0 0" Background="#36454f">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="173*"/>
+                        <RowDefinition Height="241*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="386*"/>
+                        <ColumnDefinition Width="239*"/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Grid.Column="0" Grid.Row="0" Header="Left Infrared Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                    <GroupBox Grid.Column="0" Grid.Row="0" Header="Left Infrared Stream" Margin="4,4,4,4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
                         <Image x:Name="imgIRleft"
                            RenderOptions.BitmapScalingMode="Fant"
                            Stretch="Fill"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />
                     </GroupBox>
-                    <GroupBox Grid.Column="1" Grid.Row="0" Header="Right Infrared Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                    <GroupBox Grid.Column="1" Grid.Row="0" Header="Right Infrared Stream" Margin="4,4,4,4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
                         <Image x:Name="imgIRright"
                            RenderOptions.BitmapScalingMode="Fant"
                            Stretch="Fill"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />
-                        
+
                     </GroupBox>
-                    <GroupBox Grid.Column="0" Grid.Row="1" Header="RGB Camera Color Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
-                        <Image x:Name="imgColor"
-                           RenderOptions.BitmapScalingMode="Fant"
-                           Stretch="Fill"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center" />
-                    </GroupBox>
-                    <GroupBox Grid.Column="1" Grid.Row="1" Header="Depth Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                    <GroupBox Grid.Column="0" Grid.Row="1" Header="Depth Stream" Margin="4,4,4,4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
                         <Image x:Name="imgDepth"
                            RenderOptions.BitmapScalingMode="Fant"
                            Stretch="Fill"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
                     </GroupBox>
+                    <GroupBox Grid.Column="1" Grid.Row="1" Header="RGB Camera Color Stream" Margin="4,4,4,4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <Image x:Name="imgColor"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Stretch="Fill"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                    </GroupBox>
+
 
 
                 </Grid>
