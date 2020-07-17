@@ -22,37 +22,80 @@
             </Grid.ColumnDefinitions>
             <Grid Background="#252526" Grid.Column="1">
                 <Grid Margin="0 20 0 0" Background="#36454f">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Grid.Row="0" Header="Left Infrared Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <Image x:Name="imgIRleft"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Stretch="Fill"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Grid.Row="0" Header="Right Infrared Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <Image x:Name="imgIRright"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Stretch="Fill"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                        
+                    </GroupBox>
+                    <GroupBox Grid.Column="0" Grid.Row="1" Header="RGB Camera Color Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <Image x:Name="imgColor"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Stretch="Fill"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Grid.Row="1" Header="Depth Stream" Margin="4 4 4 4" Style="{DynamicResource MaterialDesignGroupBox}"  materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="0">
+                        <Image x:Name="imgDepth"
+                           RenderOptions.BitmapScalingMode="Fant"
+                           Stretch="Fill"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                    </GroupBox>
+
 
                 </Grid>
             </Grid>
-            <Grid x:Name="grid" Width="250" Background="#252526" RenderTransformOrigin="0.5,0.5" Grid.Column="0">
+            <Grid x:Name="grid" Width="275" MinWidth="275" MinHeight="800" Background="#252526" RenderTransformOrigin="0.5,0.5" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15*"/>
                     <RowDefinition Height="326*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Background="GhostWhite">
-                    <materialDesign:PackIcon Foreground="#252526" Width="20" Margin="4 2 0 0" Kind="Settings" /><TextBlock Text="SETTINGS" Foreground="#252526" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <materialDesign:PackIcon Foreground="#252526" Width="20" Margin="4 2 0 0" Kind="Settings" />
+                    <TextBlock Text="SETTINGS" Foreground="#252526" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="1" >
                     <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-  
+                        <RowDefinition Height="70*" />
+                        <RowDefinition Height="150*" />
+                        <RowDefinition Height="130*" />
+                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="40*" />
+                        <RowDefinition Height="40*" />
+
                     </Grid.RowDefinitions>
 
-                    <materialDesign:Card Grid.Row="0" Margin="4 4 4 0" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
-                     Padding="8">
+                    <materialDesign:Card Grid.Row="0" Margin="4,4,4,88" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                     Padding="8" Grid.RowSpan="2">
                         <StackPanel>
                             <TextBlock FontSize="12">Camera Status</TextBlock>
                             <TextBlock Margin="4 4 0 0">Intel Realsense D435 <materialDesign:PackIcon Width="10" Height="10" Kind="CheckboxMarkedCircle" Foreground="Green" /></TextBlock>
-                            <TextBlock Margin="4 2 0 0" Name="txtCalibrationStatus">Calibration : </TextBlock>
+                            <TextBlock Margin="4 2 0 0" Name="txtCalibrationStatus">Calibration :</TextBlock>
                             <TextBlock Margin="0 4 0 0" FontSize="12">Field Of View</TextBlock>
                             <TextBlock x:Name="lblDepthFov" Margin="4,4,0,0" />
                             <TextBlock x:Name="lblColorFov" Margin="4,2,0,0" />
                         </StackPanel>
                     </materialDesign:Card>
 
-                    <materialDesign:Card Grid.Row="1" Margin="4 4 4 0" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                    <materialDesign:Card Grid.Row="1" Margin="4,4,4,14" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                      Padding="8">
                         <StackPanel>
                             <TextBlock FontSize="12">Region Of Interest</TextBlock>
@@ -78,14 +121,94 @@
                                 <TextBlock Grid.Column="1" Grid.Row="2"  x:Name="txtRoiMaxX" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
                                 <TextBlock Grid.Column="1" Grid.Row="3"  x:Name="txtRoiMaxY" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="96" Margin="0,0,0,0" />
                             </Grid>
+                            <Grid Height="120" Margin="0 6 0 0 ">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32*" />
+                                    <ColumnDefinition Width="83*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
 
-                            <TextBlock FontSize="12" Margin="0 4 0 0">ROI Editing</TextBlock>
+                                <Grid Grid.Column="1"  Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
+                                    <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
 
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" x:Name="lblROIX" HorizontalAlignment="Left" Text="X" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="15" Margin="38,5,0,0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" x:Name="lblROIY" HorizontalAlignment="Left" Text="Y" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="15" Margin="38,5,0,0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="15" />
+                                </Grid>
+                                <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" >
+                                    <TextBlock FontSize="12" Margin="1,7,9,7"><Run Text="ROI Editing"/></TextBlock>
+                                </Border>
+                                <Border Grid.Column="0" Grid.Row="1" BorderThickness="1" BorderBrush="LightGray" />
+                                <Border Grid.Column="0" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray" />
+                                <Border Grid.Column="0" Grid.Row="3" BorderThickness="1" BorderBrush="LightGray" />
+                                <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="LightGray" />
+                                <TextBlock Grid.Column="0" Grid.Row="1" x:Name="lblROIMin" HorizontalAlignment="Left" Text="ROI Min. :" TextWrapping="Wrap" VerticalAlignment="Center" Height="26" Width="96" Margin="2,0,0,0" Grid.ColumnSpan="2" />
+                                <TextBlock Grid.Column="0" Grid.Row="2" x:Name="lblROIMax" HorizontalAlignment="Left" Text="ROI Max. :" TextWrapping="Wrap" VerticalAlignment="Center" Height="24" Width="96" Margin="2,0,0,0" Grid.ColumnSpan="2" />
+
+
+                                <Grid Grid.Column="1"  Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
+                                    <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
+
+                                    <Slider Grid.Column="0" x:Name="sldRoiMinX" Maximum="480" TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Margin="1,2,1,1" />
+                                    <Slider Grid.Column="1" x:Name="sldRoiMinY" Maximum="240" TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Margin="1,2,1,1" />
+
+                                </Grid>
+                                <Grid Grid.Column="1"  Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
+                                    <Border Grid.Column="1" Grid.Row="0" BorderThickness="1" BorderBrush="LightGray" />
+
+                                    <Slider Grid.Column="0" x:Name="sldRoiMaxX" Maximum="480" TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Margin="1,2,1,1" />
+                                    <Slider Grid.Column="1" x:Name="sldRoiMaxY" Maximum="240" TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Margin="1,2,1,1" />
+
+
+
+                                </Grid>
+                                <Button Grid.Row="3" x:Name="btnEditRoi" Content="Update" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center"  Width="60" FontSize="9" FontFamily="Arial" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                                <Button Grid.Column="1" Grid.Row="3" x:Name="btnCalibrationRoi" Content="Save" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Width="162" FontSize="9" />
+                            </Grid>
 
                         </StackPanel>
                     </materialDesign:Card>
 
+                    <materialDesign:Card Grid.Row="2" Margin="4,4,4,4" Background="#252526" BorderThickness="1" BorderBrush="GhostWhite" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                     Padding="8">
+                        <StackPanel>
+                            <TextBlock FontSize="12">Options</TextBlock>
 
+                            <TextBlock HorizontalAlignment="Left" Text="Wall-Ball Sensitivity" TextWrapping="Wrap" VerticalAlignment="Top"  Margin="4,4,0,0" />
+                            <Slider x:Name="sldWallSense" Maximum="1500" TickPlacement="TopLeft" TickFrequency="10" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Margin="3,0,0,0"/>
+                            <TextBlock HorizontalAlignment="Left" Text="Wall Perception Depth" TextWrapping="Wrap"  Margin="4,4,0,0" />
+                            <Slider x:Name="sldWallPerception" Grid.Row="3" Margin="3,3,0,0" TickPlacement="TopLeft" TickFrequency="10" Maximum="1500" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" />
+                            <TextBlock HorizontalAlignment="Left" Text="Ball Size" TextWrapping="Wrap"  Margin="3,3,0,0" />
+                            <Slider x:Name="sldBallSize" Grid.Row="4" Margin="4,4,0,0" Maximum="50" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" />
+
+                            <TextBlock HorizontalAlignment="Left" Text="Is Clickable ?" TextWrapping="Wrap"  Margin="3,3,0,0" />
+                            <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="85,-15,0,0"  IsChecked="False" />
+
+                            <!--<CheckBox x:Name="cbIsClickable" Grid.Row="5" Margin="3,14,0,0"  Content="Is Clickable?" />-->
+                            <Label Margin="2 0 0 0" FontStyle="Italic" Foreground="White" FontSize="10">*Right mouse click disabled to mouse click active.</Label>
+                        </StackPanel>
+                    </materialDesign:Card>
 
 
 
