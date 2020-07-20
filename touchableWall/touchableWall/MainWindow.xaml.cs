@@ -23,9 +23,6 @@ using Point = System.Drawing.Point;
 
 namespace touchableWall
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
@@ -186,7 +183,7 @@ namespace touchableWall
         {
             try
             {
-                if (File.Exists("dtValues.xsd"))
+                if (File.Exists("dtData.xsd"))
                 {
                     DataTable dtData = new DataTable();
                     dtData.ReadXmlSchema("dtData.xsd");
@@ -470,6 +467,11 @@ namespace touchableWall
         {
             try
             {
+
+                /*check each index of the received depth frame and 
+                pull the image forward to the given wall sensitivity. 
+                In this way, both noise will be removed.*/
+
                 ushort[] depthCurrent = new ushort[depthFrame.Width * depthFrame.Height];
                 depthFrame.CopyTo(depthCurrent);
 
@@ -592,7 +594,7 @@ namespace touchableWall
 
                 var advancedDevice = AdvancedDevice.FromDevice(pipelineProfile.Device); //connected device
                 //read device's configuration settings from json file
-                advancedDevice.JsonConfiguration = File.ReadAllText(@"DefaultConfig_D435.json");
+                advancedDevice.JsonConfiguration = File.ReadAllText(@"CustomConfig.json");
                 selectedDevice = pipelineProfile.Device;
 
                 #region Field Of View Info
@@ -678,11 +680,11 @@ namespace touchableWall
 
                                         if (objectLocation.X != 0 || objectLocation.Y != 0 || objectLocation.Z != 0)
                                         {
-                                            Point clickLoc = objectLocationConverter(objectLocation);
+                                            Point clickLoc = objectLocationConverter(objectLocation); //calc to object location and rate screen resolution
 
                                             if (togIsClickable.IsChecked == true)
                                             {
-                                                //TODO CLICK ACION
+                                                MouseEvents.MouseLeftClick(clickLoc.X, clickLoc.Y);  //mouse left clicking
                                             }
                                         }
                                     }

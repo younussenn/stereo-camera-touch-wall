@@ -203,11 +203,10 @@
                             <Slider x:Name="sldWallPerception" Grid.Row="3" Margin="3,3,0,0" TickPlacement="TopLeft" TickFrequency="10" Maximum="1500" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="sldWallPerception_ValueChanged" />
                             <TextBlock HorizontalAlignment="Left" Text="Ball Size" TextWrapping="Wrap"  Margin="3,3,0,0" />
                             <Slider x:Name="sldBallSize" Grid.Row="4" Margin="4,4,0,0" Maximum="50" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" ValueChanged="sldBallSize_ValueChanged" />
-
                             <TextBlock HorizontalAlignment="Left" Text="Is Clickable ?" TextWrapping="Wrap"  Margin="3,3,0,0" />
                             <ToggleButton Name="togIsClickable" Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="85,-15,0,0"  IsChecked="False" Checked="togIsClickable_Checked" Unchecked="togIsClickable_Checked" />
 
-                            <!--<CheckBox x:Name="cbIsClickable" Grid.Row="5" Margin="3,14,0,0"  Content="Is Clickable?" />-->
+                           
                             <Label Margin="2 0 0 0" FontStyle="Italic" Foreground="White" FontSize="10">*Right mouse click disabled to mouse click active.</Label>
                         </StackPanel>
                     </materialDesign:Card>
