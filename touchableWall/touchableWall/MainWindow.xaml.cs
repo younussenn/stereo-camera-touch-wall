@@ -29,6 +29,7 @@ namespace touchableWall
     public partial class MainWindow : Window
     {
 
+        #region Variables
 
         Pipeline pipeline;
         PipelineProfile pipelineProfile;
@@ -43,7 +44,7 @@ namespace touchableWall
         TemporalFilter temporalFilter;
         Align align_to;
 
-        Action<VideoFrame> updateDepth, updateColor, updateIR1,updateIR2;
+        Action<VideoFrame> updateDepth, updateColor, updateIR1, updateIR2;
         ROI roiFrame;
         Point3D objectLocation;
 
@@ -59,6 +60,7 @@ namespace touchableWall
         ushort[] depthFrameAvarage = new ushort[270];
         ushort[] depthFrameResult = new ushort[270];
 
+        #endregion
 
         #region Helpers
 
@@ -119,7 +121,7 @@ namespace touchableWall
 
         #endregion
 
-        #region xmlData
+        #region XMLData
 
         private void xmlUpdate()
         {
@@ -234,8 +236,6 @@ namespace touchableWall
             }
         }
 
-
-
         #endregion
 
         #region Events
@@ -250,12 +250,104 @@ namespace touchableWall
             }
         }
 
+        private void btnEditRoi_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
 
+                roiFrame.minX = Convert.ToInt32(sldRoiMinX.Value);
+                roiFrame.minY = Convert.ToInt32(sldRoiMinY.Value);
+                roiFrame.maxX = Convert.ToInt32(sldRoiMaxX.Value);
+                roiFrame.maxY = Convert.ToInt32(sldRoiMaxY.Value);
+
+
+                txtRoiMinX.Text = roiFrame.minX.ToString();
+                txtRoiMinY.Text = roiFrame.minY.ToString();
+                txtRoiMaxX.Text = roiFrame.maxX.ToString();
+                txtRoiMaxY.Text = roiFrame.maxY.ToString();
+
+                txtCalibrationStatus.Text = "ROI updated.";
+
+                xmlUpdate();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCalibrationRoi_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                calibrationCounter = 0;
+                wallDistanceIsCalibrated = false;
+                depthFrameSum = new double[resolutionH];
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                Dispatcher.Invoke(new Action(() =>
+                {
+                    if (togIsClickable.IsChecked == true)
+                        togIsClickable.IsChecked = false;
+                }));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void sldWallPerception_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            try
+            {
+                xmlUpdate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void sldWallSense_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            try
+            {
+                xmlUpdate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void sldBallSize_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            try
+            {
+                xmlUpdate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         #endregion
 
-
-        #region calibration
+        #region Calibration
 
         private void calibrationProcess(DepthFrame depthFrame, VideoFrame colorFrame, VideoFrame infraredFrame)
         {
@@ -298,6 +390,19 @@ namespace touchableWall
             }
         }
 
+        private void togIsClickable_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                xmlUpdate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
         private void wallDistanceCalibration(DepthFrame depthFrame)
         {
             try
@@ -307,6 +412,8 @@ namespace touchableWall
 
                 if (calibrationCounter < 100)  //the first 100 frames are used for calibration
                 {
+                    calibrationCounter++;
+
                     Dispatcher.Invoke(new Action(() =>
                     {
                         txtCalibrationStatus.Text = "Calibration : Calibrating.. %" + calibrationCounter.ToString();
@@ -359,7 +466,6 @@ namespace touchableWall
                 MessageBox.Show(ex.Message);
             }
         }
-
         private DepthFrame calcWallSensitive(DepthFrame depthFrame)
         {
             try
@@ -396,7 +502,7 @@ namespace touchableWall
 
         #endregion
 
-        #region objectCatching
+        #region ObjectTracking
 
         private Point3D findObjectLocation(DepthFrame depthFrame)
         {
@@ -450,7 +556,7 @@ namespace touchableWall
 
         #endregion
 
-
+        #region Process
         void Init()
         {
             try
@@ -645,16 +751,9 @@ namespace touchableWall
             InitializeComponent();
 
             RunProcess();
-
         }
 
-
-        
-
-
-
-
-
+        #endregion
 
     }
 }
