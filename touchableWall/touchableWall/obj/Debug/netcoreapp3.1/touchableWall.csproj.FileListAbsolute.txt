@@ -20,3 +20,8 @@ C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\t
 C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\obj\Debug\netcoreapp3.1\touchableWall.dll
 C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\obj\Debug\netcoreapp3.1\touchableWall.pdb
 C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\obj\Debug\netcoreapp3.1\touchableWall_Content.g.cs
+C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\bin\Debug\netcoreapp3.1\realsense2.dll
+C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\bin\Debug\netcoreapp3.1\AForge.dll
+C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\bin\Debug\netcoreapp3.1\AForge.Imaging.dll
+C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\bin\Debug\netcoreapp3.1\AForge.Math.dll
+C:\Users\yunus\OneDrive\Belgeler\GitHub\stereo-camera-touch-wall\touchableWall\touchableWall\bin\Debug\netcoreapp3.1\Intel.RealSense.dll
